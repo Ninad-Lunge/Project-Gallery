@@ -25,9 +25,9 @@ const Projects = () => {
 
   const fetchData = async () => {
     try {
-      const categoriesResponse = await fetch('/api/categories');
-      const technologiesResponse = await fetch('/api/technologies');
-      const tagsResponse = await fetch('/api/tags');
+      const categoriesResponse = await fetch('https://project-gallery-dqq8.onrender.com/api/categories');
+      const technologiesResponse = await fetch('https://project-gallery-dqq8.onrender.com/api/technologies');
+      const tagsResponse = await fetch('https://project-gallery-dqq8.onrender.com/api/tags');
       
       setAvailableCategories(await categoriesResponse.json());
       setAvailableTechnologies(await technologiesResponse.json());
@@ -39,7 +39,7 @@ const Projects = () => {
 
   const fetchProjects = async () => {
     try {
-      const response = await fetch('/api/projects');
+      const response = await fetch('https://project-gallery-dqq8.onrender.com/api/projects');
       setProjects(await response.json());
     } catch (error) {
       console.error("Error fetching projects", error);
@@ -62,7 +62,7 @@ const Projects = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch(isEditing ? `/api/projects/${formData.id}` : '/api/projects', {
+      const response = await fetch(isEditing ? `https://project-gallery-dqq8.onrender.com/api/projects/${formData.id}` : 'https://project-gallery-dqq8.onrender.com/api/projects', {
         method: isEditing ? 'PUT' : 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
@@ -89,7 +89,7 @@ const Projects = () => {
 
   const deleteProject = async (id) => {
     try {
-      const response = await fetch(`/api/projects/${id}`, { method: 'DELETE' });
+      const response = await fetch(`https://project-gallery-dqq8.onrender.com/api/projects/${id}`, { method: 'DELETE' });
       if (response.ok) {
         setProjects(projects.filter((project) => project._id !== id));
         alert("Project deleted successfully!");

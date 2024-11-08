@@ -11,7 +11,7 @@ const Testimonials = () => {
 
   const fetchTestimonials = async () => {
     try {
-      const response = await fetch('/api/testimonials');
+      const response = await fetch('https://project-gallery-dqq8.onrender.com/api/testimonials');
       const data = await response.json();
       setTestimonials(data);
     } catch (error) {
@@ -26,7 +26,7 @@ const Testimonials = () => {
 
   const addTestimonial = async () => {
     try {
-      const response = await fetch('/api/testimonials', {
+      const response = await fetch('https://project-gallery-dqq8.onrender.com/api/testimonials', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: formData.name, content: formData.content }),
@@ -41,7 +41,7 @@ const Testimonials = () => {
 
   const updateTestimonial = async () => {
     try {
-      const response = await fetch(`/api/testimonials/${formData.id}`, {
+      const response = await fetch(`https://project-gallery-dqq8.onrender.com/api/testimonials/${formData.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: formData.name, content: formData.content }),
@@ -58,7 +58,7 @@ const Testimonials = () => {
 
   const deleteTestimonial = async (id) => {
     try {
-      await fetch(`/api/testimonials/${id}`, { method: 'DELETE' });
+      await fetch(`https://project-gallery-dqq8.onrender.com/api/testimonials/${id}`, { method: 'DELETE' });
       setTestimonials(testimonials.filter((test) => test._id !== id));
     } catch (error) {
       console.error('Error deleting testimonial:', error);

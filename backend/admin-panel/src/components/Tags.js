@@ -11,7 +11,7 @@ const Tags = () => {
 
   const fetchTags = async () => {
     try {
-      const response = await fetch('/api/tags');
+      const response = await fetch('https://project-gallery-dqq8.onrender.com/api/tags');
       const data = await response.json();
       setTags(data);
     } catch (error) {
@@ -26,7 +26,7 @@ const Tags = () => {
 
   const addTag = async () => {
     try {
-      const response = await fetch('/api/tags', {
+      const response = await fetch('https://project-gallery-dqq8.onrender.com/api/tags', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: formData.name, description: formData.description }),
@@ -41,7 +41,7 @@ const Tags = () => {
 
   const updateTag = async () => {
     try {
-      const response = await fetch(`/api/tags/${formData.id}`, {
+      const response = await fetch(`https://project-gallery-dqq8.onrender.com/api/tags/${formData.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: formData.name, description: formData.description }),
@@ -58,7 +58,7 @@ const Tags = () => {
 
   const deleteTag = async (id) => {
     try {
-      await fetch(`/api/tags/${id}`, { method: 'DELETE' });
+      await fetch(`https://project-gallery-dqq8.onrender.com/api/tags/${id}`, { method: 'DELETE' });
       setTags(tags.filter((tag) => tag._id !== id));
     } catch (error) {
       console.error('Error deleting tag:', error);

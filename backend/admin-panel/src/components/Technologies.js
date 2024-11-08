@@ -11,7 +11,7 @@ const Technologies = () => {
 
   const fetchTechnologies = async () => {
     try {
-      const response = await fetch('/api/technologies');
+      const response = await fetch('https://project-gallery-dqq8.onrender.com/api/technologies');
       const data = await response.json();
       setTechnologies(data);
     } catch (error) {
@@ -26,7 +26,7 @@ const Technologies = () => {
 
   const addTechnology = async () => {
     try {
-      const response = await fetch('/api/technologies', {
+      const response = await fetch('https://project-gallery-dqq8.onrender.com/api/technologies', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: formData.name, description: formData.description }),
@@ -41,7 +41,7 @@ const Technologies = () => {
 
   const updateTechnology = async () => {
     try {
-      const response = await fetch(`/api/technologies/${formData.id}`, {
+      const response = await fetch(`https://project-gallery-dqq8.onrender.com/api/technologies/${formData.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: formData.name, description: formData.description }),
@@ -58,7 +58,7 @@ const Technologies = () => {
 
   const deleteTechnology = async (id) => {
     try {
-      await fetch(`/api/technologies/${id}`, { method: 'DELETE' });
+      await fetch(`https://project-gallery-dqq8.onrender.com/api/technologies/${id}`, { method: 'DELETE' });
       setTechnologies(technologies.filter((tech) => tech._id !== id));
     } catch (error) {
       console.error('Error deleting technology:', error);

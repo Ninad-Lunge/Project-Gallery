@@ -9,7 +9,7 @@ const Home = () => {
 
     const fetchProjects = async () => {
         try {
-            const response = await fetch('/api/projects');
+            const response = await fetch('https://project-gallery-dqq8.onrender.com/api/projects');
             const data = await response.json();
             setProjects(data);
         } catch (error) {

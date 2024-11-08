@@ -11,7 +11,7 @@ const Categories = () => {
 
   const fetchCategories = async () => {
     try {
-      const response = await fetch('/api/categories');
+      const response = await fetch('https://project-gallery-dqq8.onrender.com/api/categories');
       const data = await response.json();
       setCategories(data);
     } catch (error) {
@@ -26,7 +26,7 @@ const Categories = () => {
 
   const addCategory = async () => {
     try {
-      const response = await fetch('/api/categories', {
+      const response = await fetch('https://project-gallery-dqq8.onrender.com/api/categories', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: formData.name, description: formData.description }),
@@ -41,7 +41,7 @@ const Categories = () => {
 
   const updateCategory = async () => {
     try {
-      const response = await fetch(`/api/categories/${formData.id}`, {
+      const response = await fetch(`https://project-gallery-dqq8.onrender.com/api/categories/${formData.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: formData.name, description: formData.description }),
@@ -58,7 +58,7 @@ const Categories = () => {
 
   const deleteCategory = async (id) => {
     try {
-      await fetch(`/api/categories/${id}`, { method: 'DELETE' });
+      await fetch(`https://project-gallery-dqq8.onrender.com/api/categories/${id}`, { method: 'DELETE' });
       setCategories(categories.filter((cat) => cat._id !== id));
     } catch (error) {
       console.error('Error deleting category:', error);
